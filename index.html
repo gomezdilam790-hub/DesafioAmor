@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pregunta importante 😏</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    text-align: center;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s;
+  }
+
+  #yes {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  #no {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+  }
+
+  #message {
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>¿Quieres estar conmigo? 💖</h1>
+  <button id="yes">Sí 😍</button>
+  <button id="no">No 😅</button>
+  <div id="message"></div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const message = document.getElementById("message");
+
+// Mover el botón "No"
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Click en "Sí"
+yesBtn.addEventListener("click", () => {
+  message.innerHTML = "Sabía que dirías que sí 😏💘";
+});
+</script>
+
+</body>
+</html>
