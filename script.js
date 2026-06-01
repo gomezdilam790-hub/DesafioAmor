@@ -1,7 +1,8 @@
 const pages = [
+
 {
 number: "01",
-image: "assets/photos/foto01.jpeg",
+image: "./assets/photos/foto01.jpeg",
 text: `No sé si esta carta tiene un propósito.
 
 Tal vez no busca cambiar nada.
@@ -11,7 +12,7 @@ Tal vez solo existe porque hay cosas que llevo guardando demasiado tiempo y ya p
 
 {
 number: "02",
-image: "assets/photos/foto02.jpeg",
+image: "./assets/photos/foto02.jpeg",
 text: `A veces pienso en nosotros y me pregunto en qué momento dejamos que todo se quedara a medio camino.
 
 Hubo problemas, situaciones que nos superaron, momentos en los que ninguno de los dos supo cómo manejar lo que estaba pasando.`
@@ -19,11 +20,12 @@ Hubo problemas, situaciones que nos superaron, momentos en los que ninguno de lo
 
 {
 number: "03",
-image: "assets/photos/foto03.jpeg",
+image: "./assets/photos/foto03.jpeg",
 text: `Lo que más me cuesta no es aceptar que las cosas cambiaron.
 
 Lo que más me cuesta es fingir que para mí cambió todo.`
 }
+
 ];
 
 let currentPage = 0;
@@ -34,141 +36,123 @@ const book = document.getElementById("book");
 
 startBtn.addEventListener("click", () => {
 
-```
-cover.classList.add("fade-out");
+    cover.classList.add("fade-out");
 
-setTimeout(() => {
+    setTimeout(() => {
 
-    cover.style.display = "none";
+        cover.style.display = "none";
 
-    book.classList.remove("hidden");
+        book.classList.remove("hidden");
 
-    renderPage();
+        renderPage();
 
-}, 800);
-```
+    }, 1000);
 
 });
 
-function renderPage(){
+function renderPage() {
 
-```
-const page = pages[currentPage];
+    book.innerHTML = `
 
-book.innerHTML = `
-<div class="page page-turn">
+    <div class="page page-turn">
 
-    <div class="left-page">
+        <div class="left-page">
 
-        <img
-            src="${page.image}"
-            alt="foto"
-            class="page-image"
-        >
+            <img
+                src="${pages[currentPage].image}"
+                alt="foto"
+                class="page-image"
+            >
 
-        <div class="page-number">
-            ${page.number}
+            <div class="page-number">
+                ${pages[currentPage].number}
+            </div>
+
+        </div>
+
+        <div class="right-page">
+
+            <div>
+
+                <div class="page-decoration">
+                    ✈
+                </div>
+
+                <div
+                    id="typingText"
+                    class="letter">
+                </div>
+
+            </div>
+
+            <div class="controls">
+
+                <button onclick="prevPage()">
+                    ←
+                </button>
+
+                <button onclick="nextPage()">
+                    →
+                </button>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="right-page">
+    `;
 
-        <div class="page-decoration">
-            ✈
-        </div>
-
-        <div
-            class="letter"
-            id="typingText">
-        </div>
-
-        <div class="controls">
-
-            <button id="prevBtn">
-                ←
-            </button>
-
-            <button id="nextBtn">
-                →
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-`;
-
-document
-    .getElementById("prevBtn")
-    .addEventListener("click", prevPage);
-
-document
-    .getElementById("nextBtn")
-    .addEventListener("click", nextPage);
-
-typeWriter(
-    page.text,
-    document.getElementById("typingText")
-);
-```
+    typeWriter(
+        pages[currentPage].text,
+        document.getElementById("typingText")
+    );
 
 }
 
 function typeWriter(text, element){
 
-```
-let i = 0;
+    element.innerHTML = "";
 
-element.innerHTML = "";
+    let i = 0;
 
-function write(){
+    function write(){
 
-    if(i >= text.length){
-        return;
+        if(i < text.length){
+
+            const char = text.charAt(i);
+
+            if(char === "\n"){
+                element.innerHTML += "<br>";
+            }else{
+                element.innerHTML += char;
+            }
+
+            i++;
+
+            setTimeout(write, 20);
+        }
     }
 
-    const char = text.charAt(i);
-
-    if(char === "\n"){
-        element.innerHTML += "<br>";
-    }else{
-        element.innerHTML += char;
-    }
-
-    i++;
-
-    setTimeout(write, 25);
-}
-
-write();
-```
-
+    write();
 }
 
 function nextPage(){
 
-```
-if(currentPage < pages.length - 1){
+    if(currentPage < pages.length - 1){
 
-    currentPage++;
+        currentPage++;
 
-    renderPage();
-}
-```
-
+        renderPage();
+    }
 }
 
 function prevPage(){
 
-```
-if(currentPage > 0){
+    if(currentPage > 0){
 
-    currentPage--;
+        currentPage--;
 
-    renderPage();
-}
-```
-
+        renderPage();
+    }
 }
