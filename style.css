@@ -1,269 +1,282 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Cormorant Garamond', serif;
-background:#f3eee6;
-overflow:hidden;
+    font-family:'Cormorant Garamond', serif;
+    background:#f3eee6;
+    overflow:hidden;
 }
 
-/* PORTADA */
+/* =========================
+PORTADA
+========================= */
 
 #cover{
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
 .paper{
-width:90%;
-max-width:900px;
-height:85vh;
-background:#faf7f2;
-border-radius:15px;
-box-shadow:0 20px 60px rgba(0,0,0,.12);
-position:relative;
-overflow:hidden;
+    width:100%;
+    max-width:1000px;
+    height:85vh;
+    background:#faf7f2;
+    border-radius:15px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+    position:relative;
+    overflow:hidden;
 }
 
 .airplane-path{
-position:absolute;
-top:80px;
-left:80px;
-width:220px;
-border-top:2px dashed #b8b8b8;
+    position:absolute;
+    top:80px;
+    left:80px;
+    width:220px;
+    border-top:2px dashed #b8b8b8;
 }
 
 .airplane{
-position:absolute;
-right:-15px;
-top:-15px;
-font-size:28px;
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    font-size:28px;
 }
 
 .cover-content{
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
 h1{
-font-size:4rem;
-font-weight:300;
-color:#2e2e2e;
-margin-bottom:25px;
+    font-size:5rem;
+    font-weight:300;
+    color:#2e2e2e;
+    margin-bottom:20px;
 }
 
 .subtitle{
-color:#777;
-font-size:1.2rem;
-margin-bottom:60px;
+    color:#777;
+    font-size:1.3rem;
+    margin-bottom:60px;
 }
 
 button{
-padding:15px 40px;
-border:none;
-border-radius:30px;
-background:#222;
-color:white;
-cursor:pointer;
-font-size:16px;
-transition:.3s;
+    padding:15px 40px;
+    border:none;
+    border-radius:30px;
+    background:#222;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
 }
 
 button:hover{
-transform:translateY(-3px);
+    transform:translateY(-3px);
 }
 
-/* LIBRO */
+/* =========================
+LIBRO
+========================= */
 
 .hidden{
-display:none;
+    display:none;
 }
 
 #book{
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
 .page{
-width:100%;
-max-width:1200px;
-height:85vh;
-display:flex;
-background:#faf7f2;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 20px 60px rgba(0,0,0,.12);
+    width:100%;
+    max-width:1400px;
+    height:88vh;
+    background:#faf7f2;
+    border-radius:15px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
 }
 
-/* FOTO */
+/* =========================
+LADO FOTO
+========================= */
 
 .left-page{
-width:50%;
-position:relative;
-overflow:hidden;
+    width:50%;
+    position:relative;
+    overflow:hidden;
+    background:#000;
 }
 
 .page-image{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-animation:photoZoom 8s ease forwards;
-}
-
-@keyframes photoZoom{
-from{
-transform:scale(1.08);
-}
-
-```
-to{
-    transform:scale(1);
-}
-```
-
-}
-
-/* TEXTO */
-
-.right-page{
-width:50%;
-padding:60px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-background:#faf7f2;
-}
-
-.page-decoration{
-font-size:28px;
-margin-bottom:20px;
-}
-
-.letter{
-font-size:22px;
-line-height:2;
-color:#333;
-min-height:320px;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    animation:photoZoom 8s ease forwards;
 }
 
 .page-number{
-position:absolute;
-bottom:20px;
-left:25px;
-color:white;
-background:rgba(0,0,0,.4);
-padding:6px 12px;
-border-radius:20px;
-font-size:14px;
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    background:rgba(0,0,0,.45);
+    color:white;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:14px;
 }
 
-/* BOTONES */
-
-.controls{
-display:flex;
-gap:15px;
-}
-
-.controls button{
-width:55px;
-height:55px;
-padding:0;
-border-radius:50%;
-font-size:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-/* ANIMACIONES */
-
-.fade-out{
-animation:fadeOut 1s forwards;
-}
-
-.fade-in{
-animation:fadeIn 1s forwards;
-}
-
-.page-turn{
-animation:pageTurn .7s ease;
-}
-
-@keyframes fadeOut{
-to{
-opacity:0;
-}
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-}
-
-```
-to{
-    opacity:1;
-}
-```
-
-}
-
-@keyframes pageTurn{
-from{
-opacity:0;
-transform:translateX(30px);
-}
-
-```
-to{
-    opacity:1;
-    transform:translateX(0);
-}
-```
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-```
-.page{
-    flex-direction:column;
-    height:auto;
-}
-
-.left-page{
-    width:100%;
-    height:45vh;
-}
+/* =========================
+LADO TEXTO
+========================= */
 
 .right-page{
-    width:100%;
-    padding:30px;
+    width:50%;
+    padding:70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-h1{
-    font-size:2.8rem;
+.text-container{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.page-decoration{
+    font-size:28px;
+    margin-bottom:25px;
+    opacity:.7;
 }
 
 .letter{
-    font-size:18px;
+    font-size:24px;
+    line-height:2;
+    color:#333;
+    white-space:pre-wrap;
+    max-width:520px;
 }
-```
 
+/* =========================
+BOTONES
+========================= */
+
+.controls{
+    display:flex;
+    gap:15px;
+}
+
+.controls button{
+    width:55px;
+    height:55px;
+    padding:0;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+
+/* =========================
+ANIMACIONES
+========================= */
+
+.fade-out{
+    animation:fadeOut 1s forwards;
+}
+
+.page-turn{
+    animation:pageTurn .7s ease;
+}
+
+@keyframes photoZoom{
+
+    from{
+        transform:scale(1.08);
+    }
+
+    to{
+        transform:scale(1);
+    }
+}
+
+@keyframes fadeOut{
+
+    to{
+        opacity:0;
+    }
+}
+
+@keyframes pageTurn{
+
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .page{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .left-page{
+        width:100%;
+        height:45vh;
+    }
+
+    .right-page{
+        width:100%;
+        padding:30px;
+    }
+
+    h1{
+        font-size:3rem;
+    }
+
+    .letter{
+        font-size:18px;
+        line-height:1.8;
+    }
+
+    .airplane-path{
+        left:30px;
+        top:50px;
+        width:150px;
+    }
 }
