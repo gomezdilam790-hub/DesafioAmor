@@ -10,137 +10,79 @@ background:#f3eee6;
 overflow:hidden;
 }
 
-/* =========================
-PORTADA
-========================= */
+/* PORTADA */
 
 #cover{
 width:100%;
 height:100vh;
-
-```
 display:flex;
 justify-content:center;
 align-items:center;
-```
-
 }
 
 .paper{
 width:90%;
 max-width:900px;
 height:85vh;
-
-```
 background:#faf7f2;
-
-border-radius:12px;
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.12);
-
+border-radius:15px;
+box-shadow:0 20px 60px rgba(0,0,0,.12);
 position:relative;
-
 overflow:hidden;
-```
-
 }
 
 .airplane-path{
 position:absolute;
-
-```
 top:80px;
 left:80px;
-
 width:220px;
-
 border-top:2px dashed #b8b8b8;
-```
-
 }
 
 .airplane{
 position:absolute;
-
-```
 right:-15px;
 top:-15px;
-
 font-size:28px;
-```
-
 }
 
 .cover-content{
 height:100%;
-
-```
 display:flex;
 flex-direction:column;
-
 justify-content:center;
 align-items:center;
-```
-
 }
 
 h1{
 font-size:4rem;
 font-weight:300;
-
-```
 color:#2e2e2e;
-
 margin-bottom:25px;
-```
-
 }
 
 .subtitle{
 color:#777;
-
-```
 font-size:1.2rem;
-
 margin-bottom:60px;
-```
-
 }
 
 button{
 padding:15px 40px;
-
-```
 border:none;
-
 border-radius:30px;
-
 background:#222;
-
 color:white;
-
 cursor:pointer;
-
 font-size:16px;
-
 transition:.3s;
-```
-
 }
 
 button:hover{
 transform:translateY(-3px);
-
-```
-background:#000;
-```
-
 }
 
-/* =========================
-LIBRO
-========================= */
+/* LIBRO */
 
 .hidden{
 display:none;
@@ -149,87 +91,45 @@ display:none;
 #book{
 width:100%;
 height:100vh;
-
-```
 display:flex;
 justify-content:center;
 align-items:center;
-```
-
+padding:20px;
 }
 
 .page{
-width:90%;
-max-width:1300px;
-
-```
+width:100%;
+max-width:1200px;
 height:85vh;
-
 display:flex;
-
 background:#faf7f2;
-
-border-radius:12px;
-
+border-radius:15px;
 overflow:hidden;
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.12);
-```
-
+box-shadow:0 20px 60px rgba(0,0,0,.12);
 }
+
+/* FOTO */
 
 .left-page{
 width:50%;
-
-```
 position:relative;
-
-background:#f7f2eb;
-
-border-right:1px solid #e7ddd2;
-```
-
+overflow:hidden;
 }
-
-.right-page{
-width:50%;
-
-```
-padding:70px;
-
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-
-overflow-y:auto;
-```
-
-}
-
-/* =========================
-FOTO
-========================= */
 
 .page-image{
 width:100%;
 height:100%;
-
-```
 object-fit:cover;
-
+display:block;
 animation:photoZoom 8s ease forwards;
-```
-
 }
 
 @keyframes photoZoom{
-
-```
 from{
-    transform:scale(1.08);
+transform:scale(1.08);
 }
 
+```
 to{
     transform:scale(1);
 }
@@ -237,168 +137,123 @@ to{
 
 }
 
-/* =========================
-TEXTO
-========================= */
+/* TEXTO */
+
+.right-page{
+width:50%;
+padding:60px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+background:#faf7f2;
+}
 
 .page-decoration{
 font-size:28px;
-
-```
 margin-bottom:20px;
-
-opacity:.7;
-```
-
 }
 
 .letter{
-color:#333;
-
-```
 font-size:22px;
-
 line-height:2;
-
-white-space:pre-wrap;
-```
-
-}
-
-.typing{
-min-height:300px;
+color:#333;
+min-height:320px;
 }
 
 .page-number{
 position:absolute;
-
-```
-bottom:25px;
-left:30px;
-
-color:#999;
-
+bottom:20px;
+left:25px;
+color:white;
+background:rgba(0,0,0,.4);
+padding:6px 12px;
+border-radius:20px;
 font-size:14px;
-```
-
 }
 
-/* =========================
-CONTROLES
-========================= */
+/* BOTONES */
 
 .controls{
 display:flex;
-
-```
 gap:15px;
-```
-
 }
 
 .controls button{
-
-```
 width:55px;
 height:55px;
-
 padding:0;
-
 border-radius:50%;
-
-font-size:18px;
-
+font-size:20px;
 display:flex;
 align-items:center;
 justify-content:center;
-```
-
 }
 
-/* =========================
-ANIMACIONES
-========================= */
+/* ANIMACIONES */
 
 .fade-out{
-animation:fadeOut 1.2s forwards;
+animation:fadeOut 1s forwards;
 }
 
 .fade-in{
-animation:fadeIn 1.5s forwards;
+animation:fadeIn 1s forwards;
 }
 
 .page-turn{
-animation:pageTurn .8s ease;
+animation:pageTurn .7s ease;
 }
 
 @keyframes fadeOut{
-
-```
-from{
-    opacity:1;
-    transform:scale(1);
-}
-
 to{
-    opacity:0;
-    transform:scale(1.03);
+opacity:0;
 }
-```
-
 }
 
 @keyframes fadeIn{
-
-```
 from{
-    opacity:0;
-    transform:translateY(20px);
+opacity:0;
 }
 
+```
 to{
     opacity:1;
-    transform:translateY(0);
 }
 ```
 
 }
 
 @keyframes pageTurn{
-
-```
 from{
-    opacity:0;
-    transform:rotateY(-15deg) scale(.95);
+opacity:0;
+transform:translateX(30px);
 }
 
+```
 to{
     opacity:1;
-    transform:rotateY(0deg) scale(1);
+    transform:translateX(0);
 }
 ```
 
 }
 
-/* =========================
-RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
 ```
 .page{
     flex-direction:column;
+    height:auto;
 }
 
 .left-page{
     width:100%;
-    height:40%;
+    height:45vh;
 }
 
 .right-page{
     width:100%;
-    height:60%;
-
     padding:30px;
 }
 
