@@ -1,32 +1,37 @@
 const pages = [
+
 {
-    number: "01",
-    text: `
-    No sé si esta carta tiene un propósito.
+number: "01",
+image: "assets/photos/foto01.jpeg",
+text: `
+No sé si esta carta tiene un propósito.
 
-    Tal vez no busca cambiar nada.
+Tal vez no busca cambiar nada.
 
-    Tal vez solo existe porque hay cosas que llevo guardando demasiado tiempo y ya pesan más de lo que debería.
-    `
+Tal vez solo existe porque hay cosas que llevo guardando demasiado tiempo y ya pesan más de lo que debería.
+`
 },
 
 {
-    number: "02",
-    text: `
-    A veces pienso en nosotros y me pregunto en qué momento dejamos que todo se quedara a medio camino.
+number: "02",
+image: "assets/photos/foto02.jpeg",
+text: `
+A veces pienso en nosotros y me pregunto en qué momento dejamos que todo se quedara a medio camino.
 
-    Hubo problemas, situaciones que nos superaron, momentos en los que ninguno de los dos supo cómo manejar lo que estaba pasando.
-    `
+Hubo problemas, situaciones que nos superaron, momentos en los que ninguno de los dos supo cómo manejar lo que estaba pasando.
+`
 },
 
 {
-    number: "03",
-    text: `
-    Lo que más me cuesta no es aceptar que las cosas cambiaron.
+number: "03",
+image: "assets/photos/foto03.jpeg",
+text: `
+Lo que más me cuesta no es aceptar que las cosas cambiaron.
 
-    Lo que más me cuesta es fingir que para mí cambió todo.
-    `
+Lo que más me cuesta es fingir que para mí cambió todo.
+`
 }
+
 ];
 
 let currentPage = 0;
@@ -37,81 +42,134 @@ const book = document.getElementById("book");
 
 startBtn.addEventListener("click", () => {
 
-    cover.classList.add("fade-out");
+```
+cover.classList.add("fade-out");
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        cover.style.display = "none";
+    cover.style.display = "none";
 
-        book.classList.remove("hidden");
+    book.classList.remove("hidden");
 
-        book.classList.add("fade-in");
+    book.classList.add("fade-in");
 
-        renderPage();
+    renderPage();
 
-    }, 1200);
+}, 1200);
+```
 
 });
 
 function renderPage(){
 
-    book.innerHTML = `
-    
-    <div class="page">
+```
+book.innerHTML = `
 
-        <div class="left-page">
+<div class="page page-turn">
 
-            <div class="page-decoration">
-                ✈
-            </div>
+    <div class="left-page">
 
-            <div class="page-number">
-                ${pages[currentPage].number}
-            </div>
+        <img
+            src="${pages[currentPage].image}"
+            class="page-image"
+        >
 
+        <div class="page-number">
+            ${pages[currentPage].number}
         </div>
 
-        <div class="right-page">
+    </div>
 
-            <div class="letter">
-                ${pages[currentPage].text.replace(/\n/g,"<br>")}
-            </div>
+    <div class="right-page">
 
-            <div class="controls">
+        <div class="page-decoration">
+            ✈
+        </div>
 
-                <button onclick="prevPage()">
-                    ←
-                </button>
+        <div
+            class="letter typing"
+            id="typingText">
+        </div>
 
-                <button onclick="nextPage()">
-                    →
-                </button>
+        <div class="controls">
 
-            </div>
+            <button onclick="prevPage()">
+                ←
+            </button>
+
+            <button onclick="nextPage()">
+                →
+            </button>
 
         </div>
 
     </div>
 
-    `;
+</div>
+
+`;
+
+typeWriter(
+    pages[currentPage].text,
+    document.getElementById("typingText")
+);
+```
+
+}
+
+function typeWriter(text, element){
+
+```
+element.innerHTML = "";
+
+let i = 0;
+
+const speed = 25;
+
+function write(){
+
+    if(i < text.length){
+
+        if(text.charAt(i) === "\n"){
+            element.innerHTML += "<br>";
+        }
+        else{
+            element.innerHTML += text.charAt(i);
+        }
+
+        i++;
+
+        setTimeout(write, speed);
+    }
+}
+
+write();
+```
+
 }
 
 function nextPage(){
 
-    if(currentPage < pages.length - 1){
+```
+if(currentPage < pages.length - 1){
 
-        currentPage++;
+    currentPage++;
 
-        renderPage();
-    }
+    renderPage();
+}
+```
+
 }
 
 function prevPage(){
 
-    if(currentPage > 0){
+```
+if(currentPage > 0){
 
-        currentPage--;
+    currentPage--;
 
-        renderPage();
-    }
+    renderPage();
+}
+```
+
 }
