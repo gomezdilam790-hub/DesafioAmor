@@ -302,3 +302,4 @@ renderPage();
 }
 
 }
+console.log("Páginas cargadas:", pages.length);
