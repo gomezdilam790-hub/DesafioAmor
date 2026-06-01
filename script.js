@@ -3,6 +3,16 @@ const pages = [
 {
 number: "01",
 image: "./assets/photos/foto01.jpeg",
+text: `Hola Valeria.
+
+Si ves este texto escribiéndose, significa que el libro ya está funcionando.
+
+Y ahora podemos comenzar a construir algo mucho más bonito.`
+},
+
+{
+number: "02",
+image: "./assets/photos/foto02.jpeg",
 text: `No sé si esta carta tiene un propósito.
 
 Tal vez no busca cambiar nada.
@@ -11,16 +21,16 @@ Tal vez solo existe porque hay cosas que llevo guardando demasiado tiempo y ya p
 },
 
 {
-number: "02",
-image: "./assets/photos/foto02.jpeg",
+number: "03",
+image: "./assets/photos/foto03.jpeg",
 text: `A veces pienso en nosotros y me pregunto en qué momento dejamos que todo se quedara a medio camino.
 
 Hubo problemas, situaciones que nos superaron, momentos en los que ninguno de los dos supo cómo manejar lo que estaba pasando.`
 },
 
 {
-number: "03",
-image: "./assets/photos/foto03.jpeg",
+number: "04",
+image: "./assets/photos/foto04.jpeg",
 text: `Lo que más me cuesta no es aceptar que las cosas cambiaron.
 
 Lo que más me cuesta es fingir que para mí cambió todo.`
@@ -50,109 +60,112 @@ startBtn.addEventListener("click", () => {
 
 });
 
-function renderPage() {
+function renderPage(){
 
-    book.innerHTML = `
+book.innerHTML = `
 
-    <div class="page page-turn">
+<div class="page page-turn">
 
-        <div class="left-page">
+    <div class="left-page">
 
-            <img
-                src="${pages[currentPage].image}"
-                alt="foto"
-                class="page-image"
-            >
+        <img
+            src="${pages[currentPage].image}"
+            class="page-image"
+            alt="foto"
+        >
 
-            <div class="page-number">
-                ${pages[currentPage].number}
+        <div class="page-number">
+            ${pages[currentPage].number}
+        </div>
+
+    </div>
+
+    <div class="right-page">
+
+        <div class="text-container">
+
+            <div class="page-decoration">
+                ✈
+            </div>
+
+            <div
+                id="typingText"
+                class="letter">
             </div>
 
         </div>
 
-        <div class="right-page">
+        <div class="controls">
 
-            <div>
+            <button onclick="prevPage()">
+                ←
+            </button>
 
-                <div class="page-decoration">
-                    ✈
-                </div>
-
-                <div
-                    id="typingText"
-                    class="letter">
-                </div>
-
-            </div>
-
-            <div class="controls">
-
-                <button onclick="prevPage()">
-                    ←
-                </button>
-
-                <button onclick="nextPage()">
-                    →
-                </button>
-
-            </div>
+            <button onclick="nextPage()">
+                →
+            </button>
 
         </div>
 
     </div>
 
-    `;
+</div>
 
-    typeWriter(
-        pages[currentPage].text,
-        document.getElementById("typingText")
-    );
+`;
+
+typeWriter(
+    pages[currentPage].text,
+    document.getElementById("typingText")
+);
 
 }
 
 function typeWriter(text, element){
 
-    element.innerHTML = "";
+element.innerHTML = "";
 
-    let i = 0;
+let i = 0;
 
-    function write(){
+function write(){
 
-        if(i < text.length){
+    if(i < text.length){
 
-            const char = text.charAt(i);
+        const char = text.charAt(i);
 
-            if(char === "\n"){
-                element.innerHTML += "<br>";
-            }else{
-                element.innerHTML += char;
-            }
-
-            i++;
-
-            setTimeout(write, 20);
+        if(char === "\n"){
+            element.innerHTML += "<br>";
+        }else{
+            element.innerHTML += char;
         }
-    }
 
-    write();
+        i++;
+
+        setTimeout(write, 25);
+    }
+}
+
+write();
+
 }
 
 function nextPage(){
 
-    if(currentPage < pages.length - 1){
+if(currentPage < pages.length - 1){
 
-        currentPage++;
+    currentPage++;
 
-        renderPage();
-    }
+    renderPage();
+}
+
 }
 
 function prevPage(){
 
-    if(currentPage > 0){
+if(currentPage > 0){
 
-        currentPage--;
+    currentPage--;
 
-        renderPage();
-    }
+    renderPage();
+}
+
 }
