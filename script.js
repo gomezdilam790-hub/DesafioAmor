@@ -166,7 +166,7 @@ const book = document.getElementById("book");
 
 startBtn.addEventListener("click", () => {
 
-```
+
 cover.classList.add("fade-out");
 
 setTimeout(() => {
@@ -178,7 +178,7 @@ setTimeout(() => {
     renderPage();
 
 }, 1000);
-```
+
 
 });
 
@@ -188,7 +188,7 @@ book.innerHTML = `
 
 <div class="page page-turn">
 
-```
+
 <div class="left-page">
 
     <img
@@ -231,7 +231,7 @@ book.innerHTML = `
     </div>
 
 </div>
-```
+
 
 </div>
 
@@ -252,7 +252,7 @@ let i = 0;
 
 function write(){
 
-```
+
 if(i < text.length){
 
     const char = text.charAt(i);
@@ -267,7 +267,7 @@ if(i < text.length){
 
     setTimeout(write, 20);
 }
-```
+
 
 }
 
@@ -279,11 +279,11 @@ function nextPage(){
 
 if(currentPage < pages.length - 1){
 
-```
+
 currentPage++;
 
 renderPage();
-```
+
 
 }
 
@@ -293,11 +293,11 @@ function prevPage(){
 
 if(currentPage > 0){
 
-```
+
 currentPage--;
 
 renderPage();
-```
+
 
 }
 
