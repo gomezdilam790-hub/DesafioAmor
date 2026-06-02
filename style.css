@@ -130,7 +130,7 @@ LIBRO
 }
 
 /* =========================
-FOTO
+LADO FOTO
 ========================= */
 
 .left-page{
@@ -160,22 +160,21 @@ FOTO
 }
 
 /* =========================
-TEXTO
+LADO TEXTO
 ========================= */
 
 .right-page{
     width:50%;
-    padding:70px;
+    padding:60px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    overflow:hidden;
 }
 
 .text-container{
     flex:1;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    overflow-y:auto;
+    padding-right:12px;
 }
 
 .page-decoration{
@@ -185,20 +184,41 @@ TEXTO
 }
 
 .letter{
-    font-size:24px;
-    line-height:2;
+    font-size:22px;
+    line-height:1.8;
     color:#333;
     white-space:pre-wrap;
-    max-width:520px;
+    max-width:100%;
+}
+
+/* Scroll elegante */
+
+.text-container::-webkit-scrollbar{
+    width:6px;
+}
+
+.text-container::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.text-container::-webkit-scrollbar-thumb{
+    background:#c8c8c8;
+    border-radius:20px;
+}
+
+.text-container::-webkit-scrollbar-thumb:hover{
+    background:#a8a8a8;
 }
 
 /* =========================
-CONTROLES
+BOTONES
 ========================= */
 
 .controls{
     display:flex;
+    justify-content:center;
     gap:15px;
+    margin-top:20px;
 }
 
 .controls button{
@@ -213,7 +233,7 @@ CONTROLES
 }
 
 /* =========================
-MUSICA
+BOTON MUSICA
 ========================= */
 
 .music-btn{
@@ -227,8 +247,8 @@ MUSICA
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:22px;
-    z-index:999;
+    font-size:20px;
+    z-index:9999;
 }
 
 .music-playing{
@@ -303,6 +323,7 @@ RESPONSIVE
     .page{
         flex-direction:column;
         height:auto;
+        min-height:100vh;
     }
 
     .page::before{
@@ -325,12 +346,16 @@ RESPONSIVE
 
     .letter{
         font-size:18px;
-        line-height:1.8;
+        line-height:1.7;
     }
 
     .airplane-path{
         left:30px;
         top:50px;
         width:150px;
+    }
+
+    .text-container{
+        overflow:visible;
     }
 }
